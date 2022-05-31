@@ -42,7 +42,7 @@ const App = () => {
       event.preventDefault()
 			event.target.reset()
       axios.post(
-        'http://localhost:3000/restaurants',
+        'https://still-coast-01389.herokuapp.com/restaurants',
         {
           name: newName,
           address: newAddress,
@@ -53,7 +53,7 @@ const App = () => {
           rank: newRank,
         }
       ).then(() => {
-          axios.get('http://localhost:3000/restaurants').then((response) => {
+          axios.get('https://still-coast-01389.herokuapp.com/restaurants').then((response) => {
                 setRestaurant(response.data)
           })
       })
