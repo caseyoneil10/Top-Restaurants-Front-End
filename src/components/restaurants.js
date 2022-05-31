@@ -21,14 +21,19 @@ const Restaurants = (props) => {
 				{props.restaurants.show ?
 				<form onSubmit={(event) => {
 						props.handleRestaurantUpdate(event, props.restaurants)
-						console.log(props.restaurants)
 				}}>
 					<input onChange={props.handleNewName} defaultValue={props.restaurants.name}></input>
+
 					<input defaultValue={props.restaurants.address} onChange={props.handleNewAddress}></input>
+
 					<input defaultValue={props.restaurants.type} onChange={props.handleNewType}></input>
+
 					<input defaultValue={props.restaurants.image} onChange={props.handleNewImage}></input>
+
 					<input defaultValue={props.restaurants.rank} onChange={props.handleNewRank}></input>
+
 					<input defaultValue={props.restaurants.chef} onChange={props.handleNewChef}></input>
+					
 					<input type='submit' value='Submit'></input>
 					</form> : null }
 
