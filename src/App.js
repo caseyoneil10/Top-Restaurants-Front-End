@@ -6,17 +6,19 @@ import Restaurants from './components/restaurants'
 
 const App = () => {
 
-		const [newName, setNewName] = useState()
-		const [newAddress, setNewAddress] = useState()
-		const [newType, setNewType] = useState()
-		const [newPrice, setNewPrice] = useState()
-		const [newImage, setNewImage] = useState()
-		const [newHours, setNewHours] = useState()
-		const [newRank, setNewRank] = useState()
-		const [restaurant, setRestaurant] = useState([])
+	// const apiUrl = "https://still-coast-01389.herokuapp.com/restaurants"
+	const apiUrl = "http://localhost:3000/restaurants"
 
+	const [newName, setNewName] = useState()
+	const [newAddress, setNewAddress] = useState()
+	const [newType, setNewType] = useState()
+	const [newPrice, setNewPrice] = useState()
+	const [newImage, setNewImage] = useState()
+	const [newHours, setNewHours] = useState()
+	const [newRank, setNewRank] = useState()
+	const [restaurant, setRestaurant] = useState([])
 
-		const handleNewName = (event) => {
+	const handleNewName = (event) => {
         setNewName(event.target.value)
     }
     const handleNewAddress = (event) => {
@@ -38,11 +40,11 @@ const App = () => {
         setNewImage(event.target.value)
     }
 
-		const handleNewRestaurant = (event) => {
+	const handleNewRestaurant = (event) => {
       event.preventDefault()
 			event.target.reset()
       axios.post(
-        'https://still-coast-01389.herokuapp.com/restaurants',
+        `${apiUrl}`,
         {
           name: newName,
           address: newAddress,
@@ -53,7 +55,7 @@ const App = () => {
           rank: newRank,
         }
       ).then(() => {
-          axios.get('https://still-coast-01389.herokuapp.com/restaurants').then((response) => {
+          axios.get(`${apiUrl}`).then((response) => {
                 setRestaurant(response.data)
           })
       })
@@ -61,10 +63,10 @@ const App = () => {
 
 	const handleDelete = (restaurantData) => {
           axios
-          .delete(`https://still-coast-01389.herokuapp.com/restaurants/${restaurantData._id}`)
+          .delete(`${apiUrl}/${restaurantData._id}`)
           .then(() => {
             axios
-              .get('https://still-coast-01389.herokuapp.com/restaurants')
+              .get(`${apiUrl}`)
               .then((response) => {
                   setRestaurant(response.data)
             })
@@ -75,7 +77,7 @@ const App = () => {
 			  event.preventDefault()
 			    axios
 			      .put(
-			        `https://still-coast-01389.herokuapp.com/restaurants/${restaurantData._id}`,
+			        `${apiUrl}/${restaurantData._id}`,
 			        {
 								name: newName,
 								address: newAddress,
@@ -88,7 +90,7 @@ const App = () => {
 			    )
 			    .then(() => {
 			      axios
-			        .get('https://still-coast-01389.herokuapp.com/restaurants')
+			        .get(`${apiUrl}`)
 			        .then((response) => {
 			            setRestaurant(response.data)
 			        })
@@ -98,7 +100,7 @@ const App = () => {
 
 
 		useEffect(() => {
-		        axios.get('https://still-coast-01389.herokuapp.com/restaurants').then((response) => {
+		        axios.get(`${apiUrl}`).then((response) => {
 		          setRestaurant(response.data)
 		        })
 
