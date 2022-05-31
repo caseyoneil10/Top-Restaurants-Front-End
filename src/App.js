@@ -13,9 +13,8 @@ const App = () => {
 	const [newName, setNewName] = useState()
 	const [newAddress, setNewAddress] = useState()
 	const [newType, setNewType] = useState()
-	const [newPrice, setNewPrice] = useState()
+	const [newChef, setNewChef] = useState()
 	const [newImage, setNewImage] = useState()
-	const [newHours, setNewHours] = useState()
 	const [newRank, setNewRank] = useState()
 	const [restaurant, setRestaurant] = useState([])
 	const [newShow, setNewShow] = useState(false)
@@ -32,11 +31,8 @@ const App = () => {
     const handleNewType = (event) => {
         setNewType(event.target.value)
     }
-    const handleNewPrice = (event) => {
-        setNewPrice(event.target.value)
-    }
-    const handleNewHours = (event) => {
-        setNewHours(event.target.value)
+    const handleNewChef = (event) => {
+        setNewChef(event.target.value)
     }
     const handleNewRank = (event) => {
         setNewRank(event.target.value)
@@ -54,9 +50,8 @@ const App = () => {
 				name: newName,
 				address: newAddress,
 				type: newType,
-				price: newPrice,
+				chef: newChef,
 				image: newImage,
-				hours: newHours,
 				rank: newRank,
 				show: newShow,
 			}
@@ -88,9 +83,8 @@ const App = () => {
 			name: newName,
 			address: newAddress,
 			type: newType,
-			price: newPrice,
+			chef: newChef,
 			image: newImage,
-			hours: newHours,
 			rank: newRank,
 			show: newShow,
 		}
@@ -103,7 +97,7 @@ const App = () => {
 		})
 	})
 	}
-			
+
 	const show = (event, restaurantData) => {
 	event.preventDefault()
 		axios
@@ -113,9 +107,8 @@ const App = () => {
 				name: restaurantData.name,
 				address: restaurantData.address,
 				type: restaurantData.type,
-				price: restaurantData.price,
+				chef: restaurantData.price,
 				image: restaurantData.image,
-				hours: restaurantData.hours,
 				rank: restaurantData.rank,
 				show: !restaurantData.show,
 			}
@@ -128,7 +121,7 @@ const App = () => {
 			})
 		})
 	}
-	
+
 	// -------------------
 	// Use Effect
 	// -------------------
@@ -148,9 +141,8 @@ const App = () => {
 			<input placeholder='Address' onChange={handleNewAddress}></input>
 			<input placeholder='Type of Food' onChange={handleNewType}></input>
 			<input placeholder='Image Link' onChange={handleNewImage}></input>
-			<input placeholder='Hours' onChange={handleNewHours}></input>
 			<input placeholder='Rank' onChange={handleNewRank}></input>
-			<input placeholder='Price' onChange={handleNewPrice}></input>
+			<input placeholder='Chef' onChange={handleNewChef}></input>
 			<input type='submit' value='Submit'></input>
 		</form>
 
@@ -162,8 +154,7 @@ const App = () => {
 				handleNewRank={handleNewRank}
 				handleNewType={handleNewType}
 				handleNewImage={handleNewImage}
-				handleNewPrice={handleNewPrice}
-				handleNewHours={handleNewHours}
+				handleNewPrice={handleNewChef}
 				show={show}/>
 		})}
 	</>
