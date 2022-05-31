@@ -18,11 +18,12 @@ const App = () => {
 	const [newRank, setNewRank] = useState()
 	const [restaurant, setRestaurant] = useState([])
 	const [newShow, setNewShow] = useState(false)
+	const [newShowRestaurant, setNewShowRestaurant] = useState(false)
 
 	// -------------------
 	// Handlers
 	// -------------------
-	const handleNewName = (event) => {
+		const handleNewName = (event) => {
         setNewName(event.target.value)
     }
     const handleNewAddress = (event) => {
@@ -122,6 +123,10 @@ const App = () => {
 		})
 	}
 
+	const showNewRestaurant = () => {
+			setNewShowRestaurant(!newShowRestaurant)
+	}
+
 	// -------------------
 	// Use Effect
 	// -------------------
@@ -129,13 +134,15 @@ const App = () => {
 			axios.get(`${apiUrl}`).then((response) => {
 				setRestaurant(response.data)
 			})
-			}, [])
+		}, [])
 
 	return (
 		<>
 		<div>
 		<h1>Top Restaurants in The World</h1>
+		<button onClick={showNewRestaurant}>Add a new Restaurant to The List</button>
 		</div>
+		{newShowRestaurant ?
 		<form onSubmit={handleNewRestaurant}>
 			<input placeholder='Restaurant Name' onChange={handleNewName}></input>
 			<input placeholder='Address' onChange={handleNewAddress}></input>
@@ -144,10 +151,12 @@ const App = () => {
 			<input placeholder='Rank' onChange={handleNewRank}></input>
 			<input placeholder='Chef' onChange={handleNewChef}></input>
 			<input type='submit' value='Submit'></input>
-		</form>
+		</form> : null }
 
 		{restaurant.map((restaurants) => {
-				return<Restaurants restaurants={restaurants} handleDelete={handleDelete} handleNewRestaurant={handleNewRestaurant}
+				return<Restaurants restaurants={restaurants}
+				key={restaurants._id}
+				handleDelete={handleDelete} handleNewRestaurant={handleNewRestaurant}
 				handleRestaurantUpdate={handleRestaurantUpdate}
 				handleNewName={handleNewName}
 				handleMNewAddress={handleNewAddress}
