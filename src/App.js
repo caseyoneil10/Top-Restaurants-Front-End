@@ -44,7 +44,7 @@ const App = () => {
 
 	const handleNewRestaurant = (event) => {
     	event.preventDefault()
-		event.target.reset()
+			event.target.reset()
     	axios.post(
         `${apiUrl}`,
 			{
@@ -95,6 +95,13 @@ const App = () => {
 		.get(`${apiUrl}`)
 		.then((response) => {
 			setRestaurant(response.data)
+			setNewName()
+			setNewAddress()
+			setNewType()
+			setNewImage()
+			setNewChef()
+			setNewRank()
+			setNewShow(false)
 		})
 	})
 	}
@@ -159,11 +166,11 @@ const App = () => {
 				handleDelete={handleDelete} handleNewRestaurant={handleNewRestaurant}
 				handleRestaurantUpdate={handleRestaurantUpdate}
 				handleNewName={handleNewName}
-				handleMNewAddress={handleNewAddress}
+				handleNewAddress={handleNewAddress}
 				handleNewRank={handleNewRank}
 				handleNewType={handleNewType}
 				handleNewImage={handleNewImage}
-				handleNewPrice={handleNewChef}
+				handleNewChef={handleNewChef}
 				show={show}/>
 		})}
 	</>
