@@ -10,12 +10,16 @@ const Restaurants = (props) => {
 					<li>{props.restaurants.image}</li>
 					<li>{props.restaurants.hours}</li>
 					<li>{props.restaurants.address}</li>
-					</ul>
+				</ul>
 					<button onClick={(event) => {
-							props.handleDelete(props.restaurants)
+						props.handleDelete(props.restaurants)
 					}}>Delete Restaurant</button>
+					<button onClick={(event) => {
+						props.show(event, props.restaurants)
+					}}>Edit Info</button>
 				</div>
 				<div>
+				{props.restaurants.show ? 
 				<form onSubmit={(event) => {
 						props.handleRestaurantUpdate(event, props.restaurants)
 				}}>
@@ -27,7 +31,8 @@ const Restaurants = (props) => {
 					<input placeholder='Rank' onChange={props.handleNewRank}></input>
 					<input placeholder='Price' onChange={props.handleNewPrice}></input>
 					<input type='submit' value='Submit'></input>
-					</form>
+					</form> : null }
+					
 				</div>
 				</main>
 		)
