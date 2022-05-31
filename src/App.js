@@ -61,10 +61,10 @@ const App = () => {
 
 	const handleDelete = (restaurantData) => {
           axios
-          .delete(`http://localhost:3000/restaurants/${restaurantData._id}`)
+          .delete(`https://still-coast-01389.herokuapp.com/restaurants/${restaurantData._id}`)
           .then(() => {
             axios
-              .get('http://localhost:3000/restaurants')
+              .get('https://still-coast-01389.herokuapp.com/restaurants')
               .then((response) => {
                   setRestaurant(response.data)
             })
@@ -75,7 +75,7 @@ const App = () => {
 			  event.preventDefault()
 			    axios
 			      .put(
-			        `http://localhost:3000/restaurants/${restaurantData._id}`,
+			        `https://still-coast-01389.herokuapp.com/restaurants/${restaurantData._id}`,
 			        {
 								name: newName,
 								address: newAddress,
@@ -88,7 +88,7 @@ const App = () => {
 			    )
 			    .then(() => {
 			      axios
-			        .get('http://localhost:3000/restaurants')
+			        .get('https://still-coast-01389.herokuapp.com/restaurants')
 			        .then((response) => {
 			            setRestaurant(response.data)
 			        })
@@ -98,7 +98,7 @@ const App = () => {
 
 
 		useEffect(() => {
-		        axios.get('http://localhost:3000/restaurants').then((response) => {
+		        axios.get('https://still-coast-01389.herokuapp.com/restaurants').then((response) => {
 		          setRestaurant(response.data)
 		        })
 
