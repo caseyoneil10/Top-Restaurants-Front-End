@@ -40,6 +40,7 @@ const App = () => {
 
 		const handleNewRestaurant = (event) => {
       event.preventDefault()
+			event.target.reset()
       axios.post(
         'http://localhost:3000/restaurants',
         {
@@ -57,6 +58,42 @@ const App = () => {
           })
       })
   }
+
+	const handleDelete = (restaurantData) => {
+          axios
+          .delete(`http://localhost:3000/restaurants/${restaurantData._id}`)
+          .then(() => {
+            axios
+              .get('http://localhost:3000/restaurants')
+              .then((response) => {
+                  setRestaurant(response.data)
+            })
+          })
+        }
+
+				const handleRestaurantUpdate = (event, restaurantData) => {
+			  event.preventDefault()
+			    axios
+			      .put(
+			        `http://localhost:3000/restaurants/${restaurantData._id}`,
+			        {
+								name: newName,
+								address: newAddress,
+								type: newType,
+								price: newPrice,
+								image: newImage,
+								hours: newHours,
+								rank: newRank,
+			        }
+			    )
+			    .then(() => {
+			      axios
+			        .get('http://localhost:3000/restaurants')
+			        .then((response) => {
+			            setRestaurant(response.data)
+			        })
+			    })
+			  }
 
 
 
@@ -85,7 +122,15 @@ return (
 
 
 	{restaurant.map((restaurants) => {
-			return<Restaurants restaurants={restaurants}/>
+			return<Restaurants restaurants={restaurants} handleDelete={handleDelete} handleNewRestaurant={handleNewRestaurant}
+			handleRestaurantUpdate={handleRestaurantUpdate}
+			handleNewName={handleNewName}
+			handleMNewAddress={handleNewAddress}
+			handleNewRank={handleNewRank}
+			handleNewType={handleNewType}
+			handleNewImage={handleNewImage}
+			handleNewPrice={handleNewPrice}
+			handleNewHours={handleNewHours}/>
 	})}
 
 </>
