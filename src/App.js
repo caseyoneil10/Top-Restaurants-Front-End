@@ -19,6 +19,8 @@ const App = () => {
 	const [restaurant, setRestaurant] = useState([])
 	const [newShow, setNewShow] = useState(false)
 	const [newShowRestaurant, setNewShowRestaurant] = useState(false)
+	const [newShowSearch, setNewShowSearch] = useState(false)
+	const [query, setQuery] = useState("")
 
 	// -------------------
 	// Handlers
@@ -135,6 +137,10 @@ const App = () => {
 			setNewShowRestaurant(!newShowRestaurant)
 
 	}
+	const showNewSearch = () => {
+			setNewShowSearch(!newShowSearch)
+
+	}
 
 	// -------------------
 	// Use Effect
@@ -149,7 +155,7 @@ const App = () => {
 		<>
 		<div>
 		<h1>Top Restaurants in The World</h1>
-		<button onClick={showNewRestaurant}>Add a new Restaurant to The List</button>
+		<button onClick={showNewRestaurant}>Add a new Restaurant to The List</button><br/>
 		</div>
 		{newShowRestaurant ?
 		<form onSubmit={handleNewRestaurant}>
@@ -161,8 +167,19 @@ const App = () => {
 			<input required placeholder='Chef' onChange={handleNewChef}></input>
 			<input type='submit' value='Submit'></input>
 		</form> : null }
+		<button onClick={showNewSearch}>Search Restaurants</button><br/>
+		{newShowSearch ?
+		<input placeholder="Search Here" onChange={(event) => {setQuery(event.target.value)}}/> : null}
 
-		{restaurant.map((restaurants) => {
+		{restaurant.filter((posts) => {
+				if (query === '') {
+					return posts
+				} else if (posts.address.toLowerCase().includes(query.toLowerCase())) {
+					return posts
+				} else if (posts.name.toLowerCase().includes(query.toLowerCase())){
+					return posts
+				}
+		}).map((restaurants) => {
 				return<Restaurants restaurants={restaurants}
 				key={restaurants._id}
 				handleDelete={handleDelete} handleNewRestaurant={handleNewRestaurant}
