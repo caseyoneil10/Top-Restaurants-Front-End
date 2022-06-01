@@ -4,8 +4,8 @@ import Restaurants from './components/restaurants'
 
 const App = () => {
 
-	const apiUrl = "https://still-coast-01389.herokuapp.com/restaurants"
-	// const apiUrl = "http://localhost:3000/restaurants"
+	// const apiUrl = "https://still-coast-01389.herokuapp.com/restaurants"
+	const apiUrl = "http://localhost:3000/restaurants"
 
 	// -------------------
 	// Hooks
@@ -153,12 +153,12 @@ const App = () => {
 		</div>
 		{newShowRestaurant ?
 		<form onSubmit={handleNewRestaurant}>
-			<input placeholder='Restaurant Name' onChange={handleNewName}></input>
-			<input placeholder='Address' onChange={handleNewAddress}></input>
-			<input placeholder='Type of Food' onChange={handleNewType}></input>
-			<input placeholder='Image Link' onChange={handleNewImage}></input>
-			<input placeholder='Rank' onChange={handleNewRank}></input>
-			<input placeholder='Chef' onChange={handleNewChef}></input>
+			<input required placeholder='Restaurant Name' onChange={handleNewName}></input>
+			<input required placeholder='Address' onChange={handleNewAddress}></input>
+			<input required placeholder='Type of Food' onChange={handleNewType}></input>
+			<input required placeholder='Image Link' onChange={handleNewImage}></input>
+			<input required type="number" min="1" placeholder='Rank' onChange={handleNewRank}></input>
+			<input required placeholder='Chef' onChange={handleNewChef}></input>
 			<input type='submit' value='Submit'></input>
 		</form> : null }
 
