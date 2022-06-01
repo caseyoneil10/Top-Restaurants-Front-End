@@ -59,6 +59,7 @@ const App = () => {
     	).then(() => {
 		axios.get(`${apiUrl}`).then((response) => {
 			setRestaurant(response.data)
+			setNewShowRestaurant(false)
 		})
     	})
   	}
@@ -132,6 +133,7 @@ const App = () => {
 
 	const showNewRestaurant = () => {
 			setNewShowRestaurant(!newShowRestaurant)
+
 	}
 
 	// -------------------
