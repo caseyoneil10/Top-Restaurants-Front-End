@@ -137,6 +137,15 @@ const App = () => {
 			setNewShowSearch(!newShowSearch)
 		}
 
+	// -------------------
+	// Google Maps API
+	// -------------------
+	// get route from backend
+	// const googleApi = process.env.REACT_APP_GOOGLEAPI
+	const googleApi = "AIzaSyClQ8tspAMi43cFoURpHZ937ZxdeVYsQU0"
+	const googleUrl = 
+		`https://www.google.com/maps/embed/v1/place?key=${googleApi}&q=`
+
 		// -------------------
 		// Use Effect
 		// -------------------
@@ -185,6 +194,8 @@ const App = () => {
 				handleNewType={handleNewType}
 				handleNewImage={handleNewImage}
 				handleNewChef={handleNewChef}
+				googleApi={googleApi}
+				googleUrl={googleUrl}
 				show={show}/>
 		})}
 		</div>

@@ -9,6 +9,10 @@ const Restaurants = (props) => {
 							<h5>Style of Food: {props.restaurants.type}</h5>
 							<h6>Head Chef: {props.restaurants.chef}</h6>
 							<img src={props.restaurants.image}/>
+							<iframe 
+								class="map" 
+								src={`${props.googleUrl} + ${props.restaurants.address}`}>
+							</iframe>
 							<button onClick={(event) => {
 							props.handleDelete(props.restaurants)
 								}}>Delete Restaurant</button>
