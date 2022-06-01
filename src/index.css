@@ -14,13 +14,16 @@ code {
 
 img {
   border-radius: 6px;
-}
-
-div {
-  margin: auto;
-  text-align: center;
+  width: 90%;
 }
 
 button {
+  margin: 1em;
+}
+.card {
+  text-align: center;
+  display: inline-block;
+  border: 2px solid black;
+  width: 75%;
   margin: 1em;
 }

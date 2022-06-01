@@ -147,11 +147,11 @@ const App = () => {
 		}, [])
 
 	return (
-		<>
-		<div>
+		<div className="container">
+		<div className="container">
 		<h1>Top Restaurants in The World</h1>
-		<button onClick={showNewRestaurant}>Add a new Restaurant to The List</button><br/>
-		</div>
+		<button onClick={showNewRestaurant}>Add a new Restaurant to The List</button>
+
 		{newShowRestaurant ?
 		<form onSubmit={handleNewRestaurant}>
 			<input required placeholder='Restaurant Name' onChange={handleNewName}></input>
@@ -187,7 +187,8 @@ const App = () => {
 				handleNewChef={handleNewChef}
 				show={show}/>
 		})}
-	</>
+		</div>
+	</div>
 	)
 }
 
