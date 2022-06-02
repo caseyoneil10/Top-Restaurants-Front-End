@@ -7,7 +7,7 @@ const Restaurants = (props) => {
 								<h4>{props.restaurants.address}</h4>
 								<h5>Style of Food: {props.restaurants.type}</h5>
 								<h6>Head Chef: {props.restaurants.chef}</h6>
-								<h6><a target="_blank" href={`${props.restaurants.chef}`}>Website</a></h6>
+								<h6><a target="_blank" href={`${props.restaurants.website}`}>Website</a></h6>
 								<img src={props.restaurants.image}/>
 								<iframe
 									className="map"
