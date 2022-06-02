@@ -24,6 +24,24 @@ button {
   text-align: center;
   display: inline-block;
   border: 2px solid black;
-  width: 75%;
+  width: 45%;
   margin: 1em;
+}
+
+
+iframe {
+  width:80%;
+  height:15em;
+  border-radius: 4px;
+}
+
+.search {
+  display: block;
+  margin: auto;
+  height: 30px;
+  width: 25%;
+  text-align: center;
+}
+.newRestaurant {
+  display: block;
 }
