@@ -32,7 +32,7 @@
   text-align: center;
   position: relative;
   width: 100%;
-  max-width: 960px;
+  max-width: 75%;
   margin: 0 auto;
   padding: 0 20px;
   box-sizing: border-box; }
@@ -122,12 +122,12 @@ are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
   font-size: 62.5%; }
 body {
+  background-image: url("https://img.freepik.com/free-photo/pastel-brown-linen-textile-textured-background_53876-104799.jpg?t=st=1654187276~exp=1654187876~hmac=c3e66afe9165f99c25aab36d7267c5a813e0393532a45952d3ce1679059f2c29&w=900");
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #222; }
-
 
 /* Typography
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -170,7 +170,9 @@ a:hover {
 button,
 input[type="submit"],
 input[type="reset"],
-input[type="button"] {
+input[type="button"],
+input[type="number"],
+input[type='text'] {
   display: inline-block;
   height: 38px;
   padding: 0 30px;
@@ -186,8 +188,9 @@ input[type="button"] {
   background-color: transparent;
   border-radius: 4px;
   border: 1px solid #bbb;
-  cursor: pointer;
-  box-sizing: border-box; }
+  cursor: auto;
+  box-sizing: border-box;
+  margin: .25em; }
 .button:hover,
 button:hover,
 input[type="submit"]:hover,
