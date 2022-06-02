@@ -1,3 +1,4 @@
+// Test comment
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 import Restaurants from './components/restaurants'
@@ -16,7 +17,7 @@ const App = () => {
 		const [newChef, setNewChef] = useState()
 		const [newImage, setNewImage] = useState()
 		const [newRank, setNewRank] = useState()
-		const [newWebsite, setNewWebsite] = useState()
+  const [newWebsite, setNewWebsite] = useState()
 		const [restaurant, setRestaurant] = useState([])
 		const [newShow, setNewShow] = useState(false)
 		const [newShowRestaurant, setNewShowRestaurant] = useState(false)
@@ -69,7 +70,6 @@ const App = () => {
 				})
 			})
 		}
-
 		const handleDelete = (restaurantData) => {
 			axios
 				.delete(`${apiUrl}/${restaurantData._id}`)
@@ -114,7 +114,6 @@ const App = () => {
 						})
 				})
 		}
-
 		const show = (event, restaurantData) => {
 			event.preventDefault()
 			axios
@@ -165,7 +164,6 @@ const App = () => {
 	const googleApi = "AIzaSyClQ8tspAMi43cFoURpHZ937ZxdeVYsQU0"
 	const googleUrl =
 		`https://www.google.com/maps/embed/v1/place?key=${googleApi}&q=`
-
 		// -------------------
 		// Use Effect
 		// -------------------
