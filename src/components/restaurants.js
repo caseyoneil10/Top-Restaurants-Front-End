@@ -37,8 +37,6 @@ const Restaurants = (props) => {
 									<button onClick={props.handleCancelEdit} className="button">Cancel</button>
 							</form> : null }
 						</div>
-
-
 				</>
 		)
 }
