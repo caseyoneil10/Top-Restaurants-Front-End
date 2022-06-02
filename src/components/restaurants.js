@@ -12,12 +12,15 @@ const Restaurants = (props) => {
 									className="map"
 									src={`${props.googleUrl} + ${props.restaurants.address} + ${props.restaurants.name}`}>
 								</iframe>
-								<button onClick={(event) => {
-								props.handleDelete(props.restaurants)
-									}}>Delete Restaurant</button>
-									<button onClick={(event) => {
+								{props.restaurants.show ? null :
+								<button className="edit" onClick={(event) => {
 								props.show(event, props.restaurants)
-								}}>Edit Info</button>
+								}}>Edit Info</button>}
+
+								{props.restaurants.show ? null :
+								<button className="delete" onClick={(event) => {
+								props.handleDelete(props.restaurants)
+								}}>Delete Restaurant</button>}
 
 							{props.restaurants.show ?
 								<form onSubmit={(event) => {
