@@ -17,7 +17,7 @@ const App = () => {
 	const [newChef, setNewChef] = useState()
 	const [newImage, setNewImage] = useState()
 	const [newRank, setNewRank] = useState()
-  	const [newWebsite, setNewWebsite] = useState()
+  const [newWebsite, setNewWebsite] = useState()
 	const [restaurant, setRestaurant] = useState([])
 	const [newShow, setNewShow] = useState(false)
 	const [newShowRestaurant, setNewShowRestaurant] = useState(false)
