@@ -2,16 +2,16 @@ const Restaurants = (props) => {
 			return  (
 				<>
 				<div className="container">
-						<div className="card">
+						<div className="card row">
 							<h2>{props.restaurants.name}</h2>
 							<h3># {props.restaurants.rank} In The World</h3>
 							<h4>{props.restaurants.address}</h4>
 							<h5>Style of Food: {props.restaurants.type}</h5>
 							<h6>Head Chef: {props.restaurants.chef}</h6>
 							<img src={props.restaurants.image}/>
-							<iframe 
-								class="map" 
-								src={`${props.googleUrl} + ${props.restaurants.address}`}>
+							<iframe
+								class="map"
+								src={`${props.googleUrl} + ${props.restaurants.address} + ${props.restaurants.name}`}>
 							</iframe>
 							<button onClick={(event) => {
 							props.handleDelete(props.restaurants)

@@ -143,7 +143,7 @@ const App = () => {
 	// get route from backend
 	// const googleApi = process.env.REACT_APP_GOOGLEAPI
 	const googleApi = "AIzaSyClQ8tspAMi43cFoURpHZ937ZxdeVYsQU0"
-	const googleUrl = 
+	const googleUrl =
 		`https://www.google.com/maps/embed/v1/place?key=${googleApi}&q=`
 
 		// -------------------
@@ -159,7 +159,7 @@ const App = () => {
 		<div className="container">
 		<div className="container">
 		<h1>Top Restaurants in The World</h1>
-		<button onClick={showNewRestaurant}>Add a new Restaurant to The List</button>
+		<button className="button-primary" onClick={showNewRestaurant}>Add a new Restaurant to The List</button>
 
 		{newShowRestaurant ?
 		<form onSubmit={handleNewRestaurant}>
