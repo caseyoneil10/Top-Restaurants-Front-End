@@ -15,19 +15,14 @@ const Restaurants = (props) => {
 									src={`${props.googleUrl} + ${props.restaurants.address} + ${props.restaurants.name}`}>
 								</iframe> : null }
 
+								{props.restaurants.showMap || props.restaurants.show ? null : <button onClick={(event) => {
+									props.showMap(event, props.restaurants)
+								}}>Show Map</button>}
+
 								{props.restaurants.show ? null :
 								<button className="edit" onClick={(event) => {
 								props.show(event, props.restaurants)
-								}}>Edit Info</button>}
-
-								{props.restaurants.show ? null :
-								<button className="delete" onClick={(event) => {
-								props.handleDelete(props.restaurants)
-								}}>Delete Restaurant</button>}
-
-								{props.restaurants.showMap ? null : <button onClick={(event) => {
-									props.showMap(event, props.restaurants)
-								}}>Show Map</button>}
+							}}>Edit Info</button>}
 
 								{props.restaurants.showMap ? <button onClick={(event) => {
 									props.showMap(event, props.restaurants)
@@ -46,7 +41,13 @@ const Restaurants = (props) => {
 									<br/>
 									<input className="edit" type='submit' value='Submit'></input>
 									<button onClick={props.handleCancelEdit} className="delete button">Cancel</button>
-							</form> : null }
+									<button className="delete" onClick={(event) => {
+									props.handleDelete(props.restaurants)
+								}}>Delete Restaurant</button>
+							</form>
+
+
+							 : null }
 						</div>
 
 

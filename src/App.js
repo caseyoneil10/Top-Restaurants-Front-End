@@ -200,7 +200,7 @@ const App = () => {
 			{newShowRestaurant ?
 			<form className="newRestaurant" onSubmit={handleNewRestaurant}>
 				<input type="text" required placeholder='Restaurant Name' onChange={handleNewName}></input>
-				<input type="text" required placeholder='Address' onChange={handleNewAddress}></input>
+				<input type="text" required placeholder='City and Country' onChange={handleNewAddress}></input>
 				<input type="text" required placeholder='Type of Food' onChange={handleNewType}></input>
 				<input type="text" required placeholder='Image Link' onChange={handleNewImage}></input>
 				<input required type="number" min="1" placeholder='Rank' onChange={handleNewRank}></input>
