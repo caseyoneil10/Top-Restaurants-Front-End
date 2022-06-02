@@ -20,6 +20,7 @@ const App = () => {
   const [newWebsite, setNewWebsite] = useState()
 	const [restaurant, setRestaurant] = useState([])
 	const [newShow, setNewShow] = useState(false)
+	const [newShowMap, setNewShowMap] = useState(false)
 	const [newShowRestaurant, setNewShowRestaurant] = useState(false)
 	const [newShowSearch, setNewShowSearch] = useState(false)
 	const [query, setQuery] = useState("")
@@ -86,7 +87,6 @@ const App = () => {
 	}
 	const handleRestaurantUpdate = (event, restaurantData) => {
 		event.preventDefault()
-		console.log("hello World");
 		axios
 			.put(
 				`${apiUrl}/${restaurantData._id}`, {
@@ -139,6 +139,29 @@ const App = () => {
 					})
 			})
 	}
+	const showMap = (event, restaurantData) => {
+		event.preventDefault()
+		axios
+			.put(
+				`${apiUrl}/${restaurantData._id}`, {
+					name: restaurantData.name,
+					address: restaurantData.address,
+					type: restaurantData.type,
+					chef: restaurantData.price,
+					image: restaurantData.image,
+					rank: restaurantData.rank,
+					website: restaurantData.website,
+					showMap: !restaurantData.showMap,
+				}
+			)
+			.then(() => {
+				axios
+					.get(`${apiUrl}`)
+					.then((response) => {
+						setRestaurant(response.data)
+					})
+			})
+	}
 	const showNewRestaurant = () => {
 		setNewShowRestaurant(!newShowRestaurant)
 	}
@@ -179,7 +202,7 @@ const App = () => {
 				<input type="text" required placeholder='Restaurant Name' onChange={handleNewName}></input>
 				<input type="text" required placeholder='Address' onChange={handleNewAddress}></input>
 				<input type="text" required placeholder='Type of Food' onChange={handleNewType}></input>
-				<input type="file" required placeholder='Image Link' onChange={handleNewImage}></input>
+				<input type="text" required placeholder='Image Link' onChange={handleNewImage}></input>
 				<input required type="number" min="1" placeholder='Rank' onChange={handleNewRank}></input>
 				<input type="text" required placeholder='Chef' onChange={handleNewChef}></input>
 				<input type="text" required placeholder='Website URL' onChange={handleNewWebsite}></input>
@@ -213,7 +236,8 @@ const App = () => {
 					handleNewWebsite={handleNewWebsite}
 					googleUrl={googleUrl}
 					handleCancelEdit={handleCancelEdit}
-					show={show}/>
+					show={show}
+					showMap={showMap}/>
 			})}
 	</div>
 	)

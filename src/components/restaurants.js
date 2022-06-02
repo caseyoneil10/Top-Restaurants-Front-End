@@ -9,18 +9,30 @@ const Restaurants = (props) => {
 								<h6>Head Chef: {props.restaurants.chef}</h6>
 								<h6><a target="_blank" href={`${props.restaurants.website}`}>Website</a></h6>
 								<img src={props.restaurants.image}/>
-								<iframe
+
+								{props.restaurants.showMap ? <iframe
 									className="map"
 									src={`${props.googleUrl} + ${props.restaurants.address} + ${props.restaurants.name}`}>
-								</iframe>
+								</iframe> : null }
+
 								{props.restaurants.show ? null :
 								<button className="edit" onClick={(event) => {
 								props.show(event, props.restaurants)
 								}}>Edit Info</button>}
+
 								{props.restaurants.show ? null :
 								<button className="delete" onClick={(event) => {
 								props.handleDelete(props.restaurants)
 								}}>Delete Restaurant</button>}
+
+								{props.restaurants.showMap ? null : <button onClick={(event) => {
+									props.showMap(event, props.restaurants)
+								}}>Show Map</button>}
+
+								{props.restaurants.showMap ? <button onClick={(event) => {
+									props.showMap(event, props.restaurants)
+								}}>Close Map</button> : null }
+
 							{props.restaurants.show ?
 								<form onSubmit={(event) => {
 								props.handleRestaurantUpdate(event, props.restaurants)}}>
