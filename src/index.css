@@ -31,7 +31,9 @@ button {
 .delete {
   background-color:#f7c0b1;
 }
-
+.edit {
+  background-color: rgb(243, 231, 165);
+}
 
 iframe {
   width:80%;
