@@ -4,8 +4,8 @@ import Restaurants from './components/restaurants'
 
 const App = () => {
 
-		const apiUrl = "https://still-coast-01389.herokuapp.com/restaurants"
-		// const apiUrl = "http://localhost:3000/restaurants"
+		// const apiUrl = "https://still-coast-01389.herokuapp.com/restaurants"
+		const apiUrl = "http://localhost:3000/restaurants"
 
 		// -------------------
 		// Hooks
@@ -16,6 +16,7 @@ const App = () => {
 		const [newChef, setNewChef] = useState()
 		const [newImage, setNewImage] = useState()
 		const [newRank, setNewRank] = useState()
+		const [newWebsite, setNewWebsite] = useState()
 		const [restaurant, setRestaurant] = useState([])
 		const [newShow, setNewShow] = useState(false)
 		const [newShowRestaurant, setNewShowRestaurant] = useState(false)
@@ -43,6 +44,9 @@ const App = () => {
 		const handleNewImage = (event) => {
 			setNewImage(event.target.value)
 		}
+		const handleNewWebsite = (event) => {
+			setNewWebsite(event.target.value)
+		}
 
 		const handleNewRestaurant = (event) => {
 			event.preventDefault()
@@ -55,6 +59,7 @@ const App = () => {
 					chef: newChef,
 					image: newImage,
 					rank: newRank,
+					website: newWebsite,
 					show: newShow,
 				}
 			).then(() => {
@@ -89,6 +94,7 @@ const App = () => {
 						chef: newChef,
 						image: newImage,
 						rank: newRank,
+						website: newWebsite,
 						show: newShow,
 					}
 				)
@@ -103,6 +109,7 @@ const App = () => {
 							setNewImage()
 							setNewChef()
 							setNewRank()
+							setNewWebsite()
 							setNewShow(false)
 						})
 				})
@@ -119,6 +126,7 @@ const App = () => {
 						chef: restaurantData.price,
 						image: restaurantData.image,
 						rank: restaurantData.rank,
+						website: restaurantData.website,
 						show: !restaurantData.show,
 					}
 				)
@@ -145,6 +153,7 @@ const App = () => {
 			setNewImage()
 			setNewChef()
 			setNewRank()
+			setNewWebsite()
 		}
 
 
@@ -179,6 +188,7 @@ const App = () => {
 				<input type="text" required placeholder='Image Link' type="text" onChange={handleNewImage}></input>
 				<input required type="number" min="1" placeholder='Rank' onChange={handleNewRank}></input>
 				<input type="text" required placeholder='Chef' onChange={handleNewChef}></input>
+				<input type="text" required placeholder='Website URL' onChange={handleNewWebsite}></input>
 				<input type='submit' value='Submit'></input>
 				<button className="button" value= "cancel" onClick={showNewRestaurant}>CANCEL</button>
 			</form> : null }
@@ -205,6 +215,7 @@ const App = () => {
 					handleNewType={handleNewType}
 					handleNewImage={handleNewImage}
 					handleNewChef={handleNewChef}
+					handleNewWebsite={handleNewWebsite}
 					googleApi={googleApi}
 					googleUrl={googleUrl}
 					handleCancelEdit={handleCancelEdit}
