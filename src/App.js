@@ -5,8 +5,8 @@ import Restaurants from './components/restaurants'
 
 const App = () => {
 
-	const apiUrl = "https://still-coast-01389.herokuapp.com/restaurants"
-	// const apiUrl = "http://localhost:3000/restaurants"
+	// const apiUrl = "https://still-coast-01389.herokuapp.com/restaurants"
+	const apiUrl = "http://localhost:3000/restaurants"
 
 	// -------------------
 	// Hooks
@@ -24,6 +24,8 @@ const App = () => {
 	const [newShowRestaurant, setNewShowRestaurant] = useState(false)
 	const [newShowSearch, setNewShowSearch] = useState(false)
 	const [query, setQuery] = useState("")
+	const [toggleError, setToggleError] = useState(false)
+  const [errorMessage, setErrorMessage] = useState('')
 
 	// -------------------
 	// Handlers
@@ -67,13 +69,15 @@ const App = () => {
 				website: newWebsite,
 				show: newShow,
 			}
-		).then(() => {
+		).then((response) => { if (response.data.rank == undefined) {alert(response.data)}
+		else {
 			axios.get(`${apiUrl}`).then((response) => {
 				setRestaurant(response.data)
 				setNewShowRestaurant(false)
-			})
 		})
 	}
+})
+}
 	const handleDelete = (restaurantData) => {
 		axios
 			.delete(`${apiUrl}/${restaurantData._id}`)
