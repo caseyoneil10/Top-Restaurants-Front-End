@@ -1,10 +1,10 @@
-// Test comment
 import axios from 'axios'
 import {useState, useEffect} from 'react'
 import Restaurants from './components/restaurants'
 
 const App = () => {
 
+	// Database Toggle
 	const apiUrl = "https://still-coast-01389.herokuapp.com/restaurants"
 	// const apiUrl = "http://localhost:3000/restaurants"
 
@@ -17,7 +17,7 @@ const App = () => {
 	const [newChef, setNewChef] = useState()
 	const [newImage, setNewImage] = useState()
 	const [newRank, setNewRank] = useState()
-  const [newWebsite, setNewWebsite] = useState()
+  	const [newWebsite, setNewWebsite] = useState()
 	const [restaurant, setRestaurant] = useState([])
 	const [newShow, setNewShow] = useState(false)
 	const [newShowMap, setNewShowMap] = useState(false)
@@ -25,7 +25,7 @@ const App = () => {
 	const [newShowSearch, setNewShowSearch] = useState(false)
 	const [query, setQuery] = useState("")
 	const [toggleError, setToggleError] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
+  	const [errorMessage, setErrorMessage] = useState('')
 
 	// -------------------
 	// Handlers
@@ -55,6 +55,7 @@ const App = () => {
 	// -------------------
 	// User Interactions
 	// -------------------
+	// New
 	const handleNewRestaurant = (event) => {
 		event.preventDefault()
 		event.target.reset()
@@ -74,10 +75,11 @@ const App = () => {
 			axios.get(`${apiUrl}`).then((response) => {
 				setRestaurant(response.data)
 				setNewShowRestaurant(false)
+			})
+		}
 		})
 	}
-})
-}
+	// Delete
 	const handleDelete = (restaurantData) => {
 		axios
 			.delete(`${apiUrl}/${restaurantData._id}`)
@@ -89,6 +91,7 @@ const App = () => {
 					})
 			})
 	}
+	// Edit
 	const handleRestaurantUpdate = (event, restaurantData) => {
 		event.preventDefault()
 		axios
@@ -120,6 +123,7 @@ const App = () => {
 					})
 			})
 	}
+	// Toggle Edit
 	const show = (event, restaurantData) => {
 		event.preventDefault()
 		axios
@@ -143,6 +147,7 @@ const App = () => {
 					})
 			})
 	}
+	// Toggle Map
 	const showMap = (event, restaurantData) => {
 		event.preventDefault()
 		axios
@@ -166,12 +171,15 @@ const App = () => {
 					})
 			})
 	}
+	// Toggle Add Restaurant
 	const showNewRestaurant = () => {
 		setNewShowRestaurant(!newShowRestaurant)
 	}
+	// Toggle Search
 	const showNewSearch = () => {
 		setNewShowSearch(!newShowSearch)
 	}
+	// Toggle Cancel in Edit
 	const handleCancelEdit = () => {
 		setNewName()
 		setNewAddress()
@@ -181,7 +189,7 @@ const App = () => {
 		setNewRank()
 		setNewWebsite()
 	}
-//
+
 	// -------------------
 	// Google Maps API
 	// -------------------
@@ -196,11 +204,16 @@ const App = () => {
 		})
 	}, [])
 
+	// -------------------
+	// Return
+	// -------------------
 	return (
 		<div className="container">
 			<br/><img src="https://i.imgur.com/61gTngD.png" />
 			<button className="button-primary" onClick={showNewRestaurant}>Add a new Restaurant to The List</button>
 			<button className="button-primary" onClick={showNewSearch}>Search Restaurants</button>
+
+			{/* Ternary Operator to toggle Add New Restaurant Function */}
 			{newShowRestaurant ?
 			<form className="newRestaurant" onSubmit={handleNewRestaurant}>
 				<input type="text" required placeholder='Restaurant Name' onChange={handleNewName}></input>
@@ -214,10 +227,14 @@ const App = () => {
 				<input type='submit' value='Submit'></input>
 				<button className="delete button" value= "cancel" onClick={showNewRestaurant}>CANCEL</button>
 			</form> : null }
+
 			<br/>
+
+			{/* Ternary Operator to toggle Search Function */}
 			{newShowSearch ?
 			<input className="search" placeholder="Name or Location" onChange={(event) => {setQuery(event.target.value)}}/> : null}
-
+			
+			{/* Search Function */}
 			{restaurant.filter((posts) => {
 					if (query === '') {
 						return posts
@@ -226,6 +243,8 @@ const App = () => {
 					} else if (posts.name.toLowerCase().includes(query.toLowerCase())){
 						return posts
 					}
+
+			{/* Making variables props for access in Componenets */}
 			}).map((restaurants) => {
 					return<Restaurants restaurants={restaurants}
 					key={restaurants._id}
@@ -244,9 +263,7 @@ const App = () => {
 					showMap={showMap}/>
 			})}
 		<footer>
-			<div className="footer">
 			<p>© 2022 | Casey O'Neil / Alexander Byun</p>
-			</div>
 		</footer>
 	</div>
 	)

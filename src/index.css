@@ -63,11 +63,6 @@ footer {
     margin-bottom: 15px;
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-}
-
 @media screen and (max-width: 921px) {
   .card {
     width: 90%;
