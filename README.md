@@ -41,16 +41,18 @@
  - Incorporate Google Maps API
  - Use a CSS Framework
  - Sort the data coming from the server numerically (by rank)
- - Search the data on the front end only display matching restaurants.
+ - Search the data on the front end only display matching restaurants
  - Custom error messages for a failed schema validation
 
 ## Unsolved Problems
 
  - Uploading an Image instead of having to link to a URL
+ - Storing Google Maps API key on the backend .env file
 
 ## Future Goals
 
  - User Authentication
- - Upload an Image instead of having to link a URL.
+ - Upload an Image instead of having to link a URL
  - A carousel for images
- - Sort by multiple things and have the user select which way to sort.
+ - Sort by multiple things and have the user select which way to sort
+ - Storing API keys on the backend .env file and accessing from frontend
