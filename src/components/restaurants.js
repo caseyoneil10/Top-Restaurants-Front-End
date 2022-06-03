@@ -24,7 +24,7 @@ const Restaurants = (props) => {
 								props.show(event, props.restaurants)
 							}}>Edit Info</button>}
 
-								{props.restaurants.showMap ? <button onClick={(event) => {
+								{props.restaurants.showMap ? <button className="delete" onClick={(event) => {
 									props.showMap(event, props.restaurants)
 								}}>Close Map</button> : null }
 
