@@ -122,7 +122,6 @@ are based on 10px sizing. So basically 1.5rem = 15px :) */
 html {
   font-size: 62.5%; }
 body {
-  background-image: url("https://img.freepik.com/free-photo/pastel-brown-linen-textile-textured-background_53876-104799.jpg?t=st=1654187276~exp=1654187876~hmac=c3e66afe9165f99c25aab36d7267c5a813e0393532a45952d3ce1679059f2c29&w=900");
   font-size: 1.5em; /* currently ems cause chrome bug misinterpreting rems on body element */
   line-height: 1.6;
   font-weight: 400;

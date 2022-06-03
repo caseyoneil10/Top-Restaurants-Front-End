@@ -243,6 +243,11 @@ const App = () => {
 					show={show}
 					showMap={showMap}/>
 			})}
+		<footer>
+			<div className="footer">
+			<p>© 2022 | Casey O'Neil / Alexander Byun</p>
+			</div>
+		</footer>
 	</div>
 	)
 }
