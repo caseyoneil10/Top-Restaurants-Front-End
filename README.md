@@ -1,70 +1,56 @@
-# Getting Started with Create React App
+# Top Restaurants in The World Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ 
 
-## Available Scripts
+## Link to App
 
-In the project directory, you can run:
+ [Front End](https://nameless-ravine-35424.herokuapp.com/)
+ [Back End](https://still-coast-01389.herokuapp.com/restaurants)
 
-### `npm start`
+## Premise
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+-   **Problem:**  Finding information about the top restaurants in the world. 
+-   **Purpose:**  Plan your next trip abroad around some of the best food the world has to offer. View information about the restaurant, its rank in the world, where it's located (with a map), and edit the restaurant information if something has changed. Also the ability to search for a restaurant, or even add a new one.
+-   **Who:** People who want the best of the best in the world of food!
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Technologies Used
 
-### `npm test`
+-   Mongoose
+-  React.js
+-   MongoDB
+-   Node.js
+-   JavaScript
+-   Express.js
+-  Google Maps API
+-   CSS Frameworks (Skeleton & Normalize)
+- GIT/GitHub
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Wire-frame
+![enter image description here](https://i.imgur.com/8kagYTi.jpg)
+## Approach Taken
 
-### `npm run build`
+ 1. Plan the project initially by making notes on what our page will look like, what our data set will be comprised of, and what the general functionality of the app will look like.
+ 2. Setup the backend schema and get our CRUD routes posting to the cloud server with the help of  Postman.
+ 3. Build out the front end by simply getting some of the data to display in our React front end. 
+ 4. Start adding additional functionality like sort, search, and Google Maps API.
+ 5. Add styling via a framework, and make the page responsive.
+ 6. Constant testing of app locally and also pushing to Heroku to ensure nothing breaking on our deployed version.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Stretch Goals
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+ - Incorporate Google Maps API
+ - Use a CSS Framework
+ - Sort the data coming from the server numerically (by rank)
+ - Search the data on the front end only display matching restaurants.
+ - Custom error messages for a failed schema validation
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Unsolved Problems
 
-### `npm run eject`
+ - Uploading an Image instead of having to link to a URL
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Future Goals
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ - User Authentication
+ - Upload an Image instead of having to link a URL.
+ - A carousel for images
+ - Sort by multiple things and have the user select which way to sort.
