@@ -5,8 +5,8 @@ import Restaurants from './components/restaurants'
 
 const App = () => {
 
-	// const apiUrl = "https://still-coast-01389.herokuapp.com/restaurants"
-	const apiUrl = "http://localhost:3000/restaurants"
+	const apiUrl = "https://still-coast-01389.herokuapp.com/restaurants"
+	// const apiUrl = "http://localhost:3000/restaurants"
 
 	// -------------------
 	// Hooks
